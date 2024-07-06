@@ -1,8 +1,14 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 const Form2 = ({ formData, onDataChange, onContinue }) => {
-  const [selectedFile, setSelectedFile] = useState(formData.profileImage);
+  const [selectedFile, setSelectedFile] = useState(formData?.profileImage || null);
+
+  useEffect(() => {
+    if (formData && formData.profileImage) {
+      setSelectedFile(formData.profileImage);
+    }
+  }, [formData]);
 
   const handleFileChange = (e) => {
     const file = e.target.files[0];

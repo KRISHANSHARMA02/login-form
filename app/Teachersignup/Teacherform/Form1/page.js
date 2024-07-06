@@ -1,9 +1,7 @@
 "use client";
-import { useRouter } from 'next/navigation';
 import React from 'react';
 
-const Form1 = ({ formData, onDataChange, onContinue }) => {
-  const router = useRouter();
+const Form1 = ({ formData = {}, onDataChange, onContinue }) => {
   const nationalities = ["Indian", "American", "Canadian", "British"];
   const languages = ["English", "Hindi", "Spanish", "French"];
   const subjects = ["Mathematics", "Science", "History", "Geography"];
@@ -18,15 +16,17 @@ const Form1 = ({ formData, onDataChange, onContinue }) => {
   };
 
   return (
-    <div className="w-full max-w-md mx-auto  p-8 rounded">
+    <div className="w-full max-w-md mx-auto p-8 rounded">
       <h1 className="text-2xl font-bold mb-4 text-start">About</h1>
-      <p className='my-4 mb-8 text-start'>Start creating your public tutor profile. Your progress will be automatically saved as you complete each section. You can return at any time to finish your registration.</p>
-      <form >
+      <p className="my-4 mb-8 text-start">
+        Start creating your public tutor profile. Your progress will be automatically saved as you complete each section. You can return at any time to finish your registration.
+      </p>
+      <form>
         <div className="relative mb-5">
           <input
             type="text"
-            name="firstName"
-            value={formData.firstName}
+            name="firstname"
+            value={formData.firstname || ""}
             onChange={handleInputChange}
             className="block w-full border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-blue-500 peer bg-transparent py-2.5"
             placeholder=" "
@@ -40,8 +40,8 @@ const Form1 = ({ formData, onDataChange, onContinue }) => {
         <div className="relative mb-5">
           <input
             type="text"
-            name="lastName"
-            value={formData.lastName}
+            name="lastname"
+            value={formData.lastname || ""}
             onChange={handleInputChange}
             className="block w-full border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-blue-500 peer bg-transparent py-2.5"
             placeholder=" "
@@ -56,7 +56,7 @@ const Form1 = ({ formData, onDataChange, onContinue }) => {
           <input
             type="email"
             name="email"
-            value={formData.email}
+            value={formData.email || ""}
             onChange={handleInputChange}
             className="block w-full border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-blue-500 peer bg-transparent py-2.5"
             placeholder=" "
@@ -70,7 +70,7 @@ const Form1 = ({ formData, onDataChange, onContinue }) => {
         <div className="relative mb-5">
           <select
             name="nationality"
-            value={formData.nationality}
+            value={formData.nationality || ""}
             onChange={handleInputChange}
             className="block w-full border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-blue-500 peer bg-transparent py-2.5"
             style={{ outline: 'none', borderBottomWidth: '2px', borderBottomColor: '#3182ce' }}
@@ -88,7 +88,7 @@ const Form1 = ({ formData, onDataChange, onContinue }) => {
         <div className="relative mb-7">
           <select
             name="subject"
-            value={formData.subject}
+            value={formData.subject || ""}
             onChange={handleInputChange}
             className="block w-full border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-blue-500 peer bg-transparent py-2.5"
             style={{ outline: 'none', borderBottomWidth: '2px', borderBottomColor: '#3182ce' }}
@@ -106,7 +106,7 @@ const Form1 = ({ formData, onDataChange, onContinue }) => {
         <div className="relative mb-7">
           <select
             name="language"
-            value={formData.language}
+            value={formData.language || ""}
             onChange={handleInputChange}
             className="block w-full border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-blue-500 peer bg-transparent py-2.5"
             style={{ outline: 'none', borderBottomWidth: '2px', borderBottomColor: '#3182ce' }}
@@ -124,8 +124,8 @@ const Form1 = ({ formData, onDataChange, onContinue }) => {
         <div className="relative mb-7">
           <input
             type="tel"
-            name="mobileNumber"
-            value={formData.mobileNumber}
+            name="mobilenumber"
+            value={formData.mobilenumber || ""}
             onChange={handleInputChange}
             className="block w-full border-0 border-b-2 border-gray-300 focus:ring-0 focus:border-blue-500 peer bg-transparent py-2.5"
             placeholder=" "
@@ -149,3 +149,4 @@ const Form1 = ({ formData, onDataChange, onContinue }) => {
 };
 
 export default Form1;
+
